@@ -1,0 +1,29 @@
+[workspace]
+resolver = "3"
+members = [
+    "crates/fbsd-sys",
+    "crates/fbsd-kernel",
+    "crates/net80211-sys",
+    "crates/cargo-kbuild",
+    "examples/hello",
+]
+
+# The kernel-target member crates (fbsd-sys, fbsd-kernel, net80211-sys,
+# examples/hello) are `no_std`/`no_main` and only ever built by
+# `cargo kbuild` against a custom `targets/*-freebsd-kernel.json` target
+# with `-Z build-std=core,alloc`. `cargo check`/`cargo build` at the
+# workspace root will not build them for the host and that's expected.
+[workspace.package]
+edition = "2021"
+license = "BSD-2-Clause"
+
+[workspace.dependencies]
+rootcause = "0.13.0"
+
+[profile.release]
+panic = "abort"
+lto = true
+opt-level = "s"
+
+[profile.dev]
+panic = "abort"

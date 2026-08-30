@@ -1,0 +1,13 @@
+[package]
+name = "cargo-kbuild"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+description = "cargo subcommand: builds an out-of-tree FreeBSD KLD from a Rust crate against a FreeBSD source tree (sys/conf/kmod.mk-compatible final link)."
+
+[[bin]]
+name = "cargo-kbuild"
+path = "src/main.rs"
+
+[dependencies]
+rootcause.workspace = true

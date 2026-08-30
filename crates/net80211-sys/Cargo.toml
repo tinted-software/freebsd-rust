@@ -1,0 +1,13 @@
+[package]
+name = "net80211-sys"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+description = "Raw bindgen FFI bindings to sys/net80211 (ieee80211_var.h and friends), generated against a real FreeBSD source tree. No safe wrapper yet; net80211 drivers are future work."
+links = "fbsd_net80211_headers"
+
+[lib]
+name = "net80211_sys"
+
+[build-dependencies]
+bindgen = { version = "0.72", default-features = false, features = ["runtime"] }
