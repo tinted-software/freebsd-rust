@@ -11,3 +11,5 @@ path = "src/main.rs"
 
 [dependencies]
 rootcause.workspace = true
+reqwest = { workspace = true, features = ["blocking"] }
+indicatif.workspace = true

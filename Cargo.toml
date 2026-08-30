@@ -19,6 +19,9 @@ license = "BSD-2-Clause"
 
 [workspace.dependencies]
 rootcause = "0.13.0"
+reqwest = { version = "0.13.4", default-features = false, features = ["rustls", "http2"] }
+lzma-rust2 = "0.20.1"
+indicatif = "0.18.6"
 
 [profile.release]
 panic = "abort"
